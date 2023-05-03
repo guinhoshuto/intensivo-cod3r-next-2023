@@ -8,9 +8,9 @@ export default function PaginaCirculos(){
             items-center
             h-screen
         `}>
-            <Circulo>1</Circulo>
-            <Circulo>2</Circulo>
-            <Circulo>3</Circulo>
+            <Circulo texto="A" />
+            <Circulo texto="B" />
+            <Circulo texto="C" quasePerfeito/>
         </div>
     )
 }
