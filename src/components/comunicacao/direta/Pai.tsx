@@ -14,7 +14,6 @@ export default function Pai(props: PaiProps){
             <div>
                 <Filho nome="G" sobrenome={props.sobrenome}/>
                 <Filho nome="H" sobrenome={props.sobrenome}/>
-
             </div>
         </div>
     )
