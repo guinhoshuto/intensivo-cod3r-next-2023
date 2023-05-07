@@ -5,6 +5,7 @@ export default function Faq(){
     const [ativo, setAtivo] = useState<number>(0)
 
     function alternarVisibilidade(indice: number){
+        console.log(ativo)
         if (indice === ativo){
             setAtivo(-1)
         } else {
@@ -14,10 +15,27 @@ export default function Faq(){
 
     return (
         <div className="flex flex-col gap-5">
-            <Pergunta pergunta="a?" resposta="b!" />
-            <Pergunta pergunta="c?" resposta="f!" />
-            <Pergunta pergunta="d?" resposta="g!" />
-            <Pergunta pergunta="e?" resposta="h!" />
+            <Pergunta 
+                indice={0}
+                pergunta="a?" 
+                resposta="b!" 
+                open={ativo=== 0}
+                alternarVisibilidade={alternarVisibilidade}
+            />
+            <Pergunta 
+                indice={1}
+                pergunta="a?" 
+                resposta="b!" 
+                open={ativo=== 1}
+                alternarVisibilidade={alternarVisibilidade}
+            />
+            <Pergunta 
+                indice={2}
+                pergunta="a?" 
+                resposta="b!" 
+                open={ativo=== 2}
+                alternarVisibilidade={alternarVisibilidade}
+            />
         </div>
     )
 }
