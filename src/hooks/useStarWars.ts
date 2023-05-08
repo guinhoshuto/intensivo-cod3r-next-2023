@@ -1,10 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import useProcessando from "./useProcessando"
 
 export default function useStarWars(){
     const {processando, iniciarProcessamento, finalizarProcessamento} = useProcessando()
     const [personagens, setPersonagens] = useState<any>([])
-    async function obterPersonagens() {
+    useEffect(() => {
+        obterPersonagens()
+    }, [])
+
+    const obterPersonagens = useCallback(async () => {
         try{
             iniciarProcessamento()
             const res = await fetch('https://swapi.dev/api/people')
@@ -14,9 +18,9 @@ export default function useStarWars(){
             finalizarProcessamento()
             console.log('terminou')
         }
-    }
+    }, [iniciarProcessamento, finalizarProcessamento])
 
     return {
-        personagens, obterPersonagens
+        personagens, processando
     }
 }

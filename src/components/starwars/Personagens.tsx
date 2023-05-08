@@ -3,8 +3,8 @@ import useStarWars from "@/hooks/useStarWars"
 import { useState } from "react"
 
 export default function Personagens(){
-    const {processando, iniciarProcessamento, finalizarProcessamento} = useProcessando()
-    const {personagens, obterPersonagens} = useStarWars()
+    const { iniciarProcessamento, finalizarProcessamento} = useProcessando()
+    const {personagens, processando} = useStarWars()
 
     return(
         <div>
@@ -17,7 +17,7 @@ export default function Personagens(){
                     ))}
                 </ul>
             )}
-            <button onClick={obterPersonagens}>SIMULAR</button>
+            <button onClick={() => processando}>SIMULAR</button>
         </div>
     )
 }
